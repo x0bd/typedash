@@ -1,3 +1,4 @@
+import React from "react";
 import { faker } from "@faker-js/faker";
 import RestartButton from "./components/RestartButton";
 import Results from "./components/Results";
@@ -8,10 +9,10 @@ export default function App() {
 	return (
 		<>
 			<CountdownTimer timeLeft={30} />
-			<div className="relative max-w-xl mt-3 text-3xl leading-relaxed break-all">
+			<WordsContainer>
 				<GeneratedWords words={words} />
-				<UserTypings className="absolute inset-0" userInput={words} />
-			</div>
+				<UserTypings className="absolute inset-0" userInput={"test"} />
+			</WordsContainer>
 			<RestartButton
 				className={"mx-auto mt-10 text-slate-500"}
 				onRestart={() => null}
@@ -25,6 +26,14 @@ export default function App() {
 		</>
 	);
 }
+
+const WordsContainer = ({ children }: { children: React.ReactNode }) => {
+	return (
+		<div className="relative text-3xl max-w-xl leading-relaxed break-all">
+			{children}
+		</div>
+	);
+};
 
 const GeneratedWords = ({ words }: { words: string }) => {
 	return <div className="text-slate-500">{words}</div>;
