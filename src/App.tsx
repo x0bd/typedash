@@ -1,17 +1,18 @@
 import React from "react";
-import { faker } from "@faker-js/faker";
 import RestartButton from "./components/RestartButton";
 import Results from "./components/Results";
 import UserTypings from "./components/UserTypings";
-const words = faker.random.words(10);
+import useEngine from "./hooks/useEngine";
 
 export default function App() {
+	const { state, words, timeLeft, typed } = useEngine();
+
 	return (
 		<>
-			<CountdownTimer timeLeft={30} />
+			<CountdownTimer timeLeft={timeLeft} />
 			<WordsContainer>
 				<GeneratedWords words={words} />
-				<UserTypings className="absolute inset-0" userInput={"test"} />
+				<UserTypings className="absolute inset-0" userInput={typed} />
 			</WordsContainer>
 			<RestartButton
 				className={"mx-auto mt-10 text-slate-500"}
