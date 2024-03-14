@@ -1,4 +1,5 @@
 import Caret from "./Caret";
+import classNames from "classnames";
 
 const UserTypings = ({
 	userInput,
@@ -37,7 +38,17 @@ const Character = ({
 	const isCorrect = actual === expected;
 	const isWhiteSpace = expected === " ";
 
-	return <span className={cn()}>{expected}</span>;
+	return (
+		<span
+			className={classNames({
+				"text-red-500": !isCorrect && !isWhiteSpace,
+				"text-primary-400": isCorrect && !isWhiteSpace,
+				"bg-red-500/50": !isCorrect && isWhiteSpace,
+			})}
+		>
+			{expected}
+		</span>
+	);
 };
 
 export default UserTypings;

@@ -3,26 +3,36 @@ import RestartButton from "./components/RestartButton";
 import Results from "./components/Results";
 import UserTypings from "./components/UserTypings";
 import useEngine from "./hooks/useEngine";
+import { calculateAccuracyPercentage } from "./utils/helpers";
 
 export default function App() {
-	const { state, words, timeLeft, typed } = useEngine();
+	const { state, words, timeLeft, typed, errors, restart, totalTyped } =
+		useEngine();
 
 	return (
 		<>
 			<CountdownTimer timeLeft={timeLeft} />
 			<WordsContainer>
 				<GeneratedWords words={words} />
-				<UserTypings className="absolute inset-0" userInput={typed} />
+				<UserTypings
+					className="absolute inset-0"
+					words={words}
+					userInput={typed}
+				/>
 			</WordsContainer>
 			<RestartButton
 				className={"mx-auto mt-10 text-slate-500"}
-				onRestart={() => null}
+				onRestart={restart}
 			/>
 			<Results
+				state={state}
 				className="mt-10"
-				errors={10}
-				accuracyPercentage={100}
-				total={200}
+				errors={errors}
+				accuracyPercentage={calculateAccuracyPercentage(
+					errors,
+					totalTyped
+				)}
+				total={totalTyped}
 			/>
 		</>
 	);
