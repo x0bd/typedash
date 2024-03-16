@@ -47,9 +47,9 @@ const WordsContainer = ({ children }: { children: React.ReactNode }) => {
 };
 
 const GeneratedWords = ({ words }: { words: string }) => {
-	return <div className="text-slate-500">{words}</div>;
+	return <div className="text-green">{words}</div>;
 };
 
 const CountdownTimer = ({ timeLeft }: { timeLeft: number }) => {
-	return <h2 className="text-primary-400 font-medium">Time: {timeLeft}</h2>;
+	return <h2 className="text-red font-medium">Time: {timeLeft}</h2>;
 };
