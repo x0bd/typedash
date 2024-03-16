@@ -21,7 +21,7 @@ export default function App() {
 				/>
 			</WordsContainer>
 			<RestartButton
-				className={"mx-auto mt-10 text-slate-500"}
+				className={"mx-auto mt-10 text-white"}
 				onRestart={restart}
 			/>
 			<Results

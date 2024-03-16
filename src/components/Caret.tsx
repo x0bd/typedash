@@ -4,7 +4,7 @@ const Caret = () => {
 	return (
 		<motion.div
 			aria-hidden={true}
-			className="inline-block bg-primary-500 w-0.5 h-7"
+			className="inline-block bg-yellow w-0.5 h-7"
 			initial={{ opacity: 1 }}
 			animate={{ opacity: 0 }}
 			exit={{ opacity: 1 }}

@@ -28,7 +28,7 @@ const Results = ({
 			initial={initial}
 			animate={animate}
 			transition={{ ...duration, delay: 0.5 }}
-			className={`flex flex-col items-center text-primary-400 space-y-3 ${className}`}
+			className={`flex flex-col items-center text-cyan space-y-3 ${className}`}
 		>
 			<motion.li
 				initial={initial}
@@ -49,7 +49,7 @@ const Results = ({
 				initial={initial}
 				animate={animate}
 				transition={{ ...duration, delay: 1 }}
-				className="text-red-500"
+				className="text-red"
 			>
 				Errors: {errors}
 			</motion.li>
